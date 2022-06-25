@@ -1,48 +1,16 @@
-import axios from "axios";
-import { useState } from "react";
-import "./Modal.css";
-
-function Modal(props) {
-  let [name,setName] = useState("");
-  let [email,setEmail] = useState("");
-  let [phone,setPhone] = useState("");
-  let [city,setCity] = useState("");
- 
-  if (!props.show) {
-    return null;
-  }
-  const handleInput = event => {
-    setName(event.target.value);
-  };
+export function Footer() {
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <div className="modal-header">
-          <h3 className="modal-title">{props.title}</h3>
+    <footer className="py-4 bg-light mt-auto">
+      <div className="container-fluid px-4">
+        <div className="d-flex align-items-center justify-content-between small">
+          <div className="text-muted">Copyright &copy; Your Website 2022</div>
+          <div>
+            <a href="src/components/Footer#">Privacy Policy</a>
+            &middot;
+            <a href="src/components/Footer#">Terms &amp; Conditions</a>
+          </div>
         </div>
-        <div className="modal-body">
-          <label for="name">name:</label>
-          <input type="text" id="name" name="name" onChange={handleInput}/>
-          <br />
-          <label for="mail">Email:</label>
-          <input type="text" id="mail" name="mail" />
-          <br />
-          <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" />
-          <br />
-          <label for="city">City</label>
-          <input type="text" id="city" name="city" />
-          <br />
-        </div>
-        <button className="btn btn-primary" onClick={()=>{
-            setName()
-            axios.post("https://jsonplaceholder.typicode.com",{})
-        }}>
-          Add
-        </button>
       </div>
-    </div>
+    </footer>
   );
 }
-
-export default Modal;
